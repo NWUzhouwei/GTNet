@@ -4,7 +4,12 @@
 - PyTorch >= 1.2
 - CUDA >= 10.0
 - Package: glob, h5py, sklearn, plyfile,tensorboardX
+#### Network architecture:
+The network architecture of GTNet is shown below:
 
+<p float="left">
+    <img src="image/network.png"/>
+</p>
 ## Point Cloud Classification
 ### Run the training script:
 python main_cls.py
