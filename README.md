@@ -4,11 +4,24 @@
 - PyTorch >= 1.2
 - CUDA >= 10.0
 - Package: glob, h5py, sklearn, plyfile,tensorboardX
-#### Network architecture:
+#### Overall Network architecture:
 The network architecture of GTNet is shown below:
 
 <p float="left">
     <img src="image/network.png"/>
+</p>
+
+#### Implementation details
+- GTNet is mainly composed of Graph Transformer, which is mainly divided into Local Transformer and Global Transformer:
+
+<p float="left">
+    <img src="image/lg.png"/>
+</p>
+
+- Dynamic graph update process:
+
+<p float="left">
+    <img src="image/lg.png"/>
 </p>
 
 ## Point Cloud Classification
