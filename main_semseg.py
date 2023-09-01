@@ -228,18 +228,18 @@ def train(args, io):
         print("Use Adam")
         opt = optim.Adam(model.parameters(), lr=args.lr, weight_decay=1e-4)
 
-    # try:
-    print("load model*******************************")
-    checkpoint = torch.load('outputs\\%s\\models\\best_model_%s.pth' % (args.exp_name, args.test_area))
-    start_epoch = checkpoint['epoch']
-    # print(start_epoch)
-    model.load_state_dict(checkpoint['model_state_dict'])
-    if 'optimizer_state_dict' in checkpoint and checkpoint['optimizer_state_dict'] is not None:
-        print(' => loading optimizer')
-        opt.load_state_dict(checkpoint['optimizer_state_dict'])
-        # print(start_epoch)
-    # except:
-    #     start_epoch = 0
+    try:
+      print("load model*******************************")
+      checkpoint = torch.load('outputs\\%s\\models\\best_model_%s.pth' % (args.exp_name, args.test_area))
+      start_epoch = checkpoint['epoch']
+      # print(start_epoch)
+      model.load_state_dict(checkpoint['model_state_dict'])
+      if 'optimizer_state_dict' in checkpoint and checkpoint['optimizer_state_dict'] is not None:
+          print(' => loading optimizer')
+          opt.load_state_dict(checkpoint['optimizer_state_dict'])
+          # print(start_epoch)
+    except:
+        start_epoch = 0
     print(start_epoch)
     if args.scheduler == 'cos':
         scheduler = CosineAnnealingLR(opt, args.epochs, eta_min=1e-3)
