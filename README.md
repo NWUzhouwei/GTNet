@@ -88,21 +88,8 @@ Color map:
 
 
 ## Citation
-GTNet code refers to the following papers: 
-@article{wang2019dynamic,
-  title={Dynamic graph cnn for learning on point clouds},
-  author={Wang, Yue and Sun, Yongbin and Liu, Ziwei and Sarma, Sanjay E and Bronstein, Michael M and Solomon, Justin M},
-  journal={ACM Transactions on Graphics (tog)},
-  volume={38},
-  number={5},
-  pages={1--12},
-  year={2019},
-  publisher={ACM New York, NY, USA}
-}
-@inproceedings{zhao2021point,
-  title={Point transformer},
-  author={Zhao, Hengshuang and Jiang, Li and Jia, Jiaya and Torr, Philip HS and Koltun, Vladlen},
-  booktitle={Proceedings of the IEEE/CVF international conference on computer vision},
-  pages={16259--16268},
-  year={2021}
-}
+GTNet code refers to the following codes: 
+
+[DGCNN](https://github.com/antao97/dgcnn.pytorch)
+
+[Point Transformer](https://github.com/qq456cvb/Point-Transformers)
