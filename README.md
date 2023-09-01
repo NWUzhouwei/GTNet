@@ -21,7 +21,7 @@ The network architecture of GTNet is shown below:
 - Dynamic graph update process:
 
 <p float="left">
-    <img src="image/lg.png"/>
+    <img src="image/graph.png"/>
 </p>
 
 ## Point Cloud Classification
