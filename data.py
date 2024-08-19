@@ -392,6 +392,8 @@ class S3DISDataset(Dataset):
         index_to_filename, scene_list = [], {}
         filename_to_start_index = {}
         for area in areas:
+            if not os.path.isdir(os.path.join(area, scene)):
+                 continue
             area_scenes = os.listdir(area)
             area_scenes.sort()
             for scene in area_scenes:
