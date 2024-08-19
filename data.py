@@ -461,9 +461,11 @@ if __name__ == '__main__':
     print(data.shape)
     print(label.shape)
     print(seg.shape)
-
-    train = S3DISDataset('D:\\datasets\\s3dis',4096)
-    test = S3DISDataset('D:\\datasets\\s3dis',4096, 'test')
+    
+    # train = S3DISDataset('D:\\datasets\\s3dis',4096)
+    # test = S3DISDataset('D:\\datasets\\s3dis',4096, 'test')
+    train=S3DIS(4096,'train')
+    test=S3DIS(4096,'test')
     data, seg = train[0]
     print(data.shape)
     print(seg.shape)
