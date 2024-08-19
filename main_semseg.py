@@ -197,15 +197,15 @@ def worker_init_fn(worker_id):
 def train(args, io):
     root = 'D:\\datasets\\s3dis'
 
-    # train_loader = DataLoader(S3DIS(partition='train', num_points=args.num_points, test_area=args.test_area),
-    #                           num_workers=0, batch_size=args.batch_size, shuffle=True, drop_last=True, worker_init_fn = worker_init_fn)
-    # test_loader = DataLoader(S3DIS(partition='test', num_points=args.num_points, test_area=args.test_area),
-    #                          num_workers=0, batch_size=args.test_batch_size, shuffle=True, drop_last=False, worker_init_fn =worker_init_fn)
+    train_loader = DataLoader(S3DIS(partition='train', num_points=args.num_points, test_area=args.test_area),
+                              num_workers=0, batch_size=args.batch_size, shuffle=True, drop_last=True, worker_init_fn = worker_init_fn)
+    test_loader = DataLoader(S3DIS(partition='test', num_points=args.num_points, test_area=args.test_area),
+                             num_workers=0, batch_size=args.test_batch_size, shuffle=True, drop_last=False, worker_init_fn =worker_init_fn)
     
-    train_loader = DataLoader(S3DISDataset(root = root, num_points=args.num_points, split='train', with_normalized_coords=True, holdout_area=args.test_area),
-                              num_workers=8, batch_size=args.batch_size, shuffle=True, drop_last=True)
-    test_loader = DataLoader(S3DISDataset(root = root, num_points=args.num_points, split='test', with_normalized_coords=True, holdout_area=args.test_area),
-                             num_workers=8, batch_size=args.test_batch_size, shuffle=True, drop_last=False)
+    # train_loader = DataLoader(S3DISDataset(root = root, num_points=args.num_points, split='train', with_normalized_coords=True, holdout_area=args.test_area),
+    #                           num_workers=8, batch_size=args.batch_size, shuffle=True, drop_last=True)
+    # test_loader = DataLoader(S3DISDataset(root = root, num_points=args.num_points, split='test', with_normalized_coords=True, holdout_area=args.test_area),
+    #                          num_workers=8, batch_size=args.test_batch_size, shuffle=True, drop_last=False)
 
     device = torch.device("cuda" if args.cuda else "cpu")
 
