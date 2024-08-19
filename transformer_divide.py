@@ -179,7 +179,7 @@ class GT(nn.Module):
         #
         # torch.cuda.empty_cache()
         res =self.sa(res)
-        # res = res.permute(0, 2, 1)
+        res = res.permute(0, 2, 1)
         # torch.cuda.empty_cache()
         return res, attn
 
