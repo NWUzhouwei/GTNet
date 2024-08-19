@@ -45,7 +45,7 @@ def knn(x, k):
 
 def get_graph_feature(x, k=20, idx=None, dim9=False,dim6=False):
     batch_size = x.size(0)
-    num_points = x.size(2)
+    num_points = x.size(1)
     x = x.view(batch_size, -1, num_points)
     if idx is None:
         if dim9 == False and dim6 == False:
