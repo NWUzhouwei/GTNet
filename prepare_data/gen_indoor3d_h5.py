@@ -19,7 +19,7 @@ data_dtype = 'float32'
 label_dtype = 'uint8'
 
 # Set paths
-filelist = 'D:\\wq\\dgcnn.pytorch-master\\prepare_data\\meta\\all_data_label.txt' # os.path.join(BASE_DIR, 'mete\\all_data_label.txt')
+filelist = 'D:\\wq\\dgcnn.pytorch-master\\prepare_data\\meta\\all_data_label.txt' # os.path.join(BASE_DIR, 'meta\\all_data_label.txt')
 data_label_files = [os.path.join(indoor3d_data_dir, line.rstrip()) for line in open(filelist)]
 output_dir = os.path.join(data_dir, 'indoor3d_sem_seg_hdf5_data_test')
 if not os.path.exists(output_dir):
