@@ -441,16 +441,16 @@ class GTNet_semseg(nn.Module):
         x4=self.transformer4(x3)[0]
         
 
-        x = torch.cat((x1, x2, x3,x4), dim=1)      # (batch_size, 64*3, num_points)
+        x = torch.cat((x1, x2, x3,x4), dim=2).permute(0,2,1)      # (batch_size, 64*3, num_points)
        
         x = self.conv6(x)                       # (batch_size, 64*3, num_points) -> (batch_size, emb_dims, num_points)
         avgs = F.adaptive_avg_pool1d(x,1).view(batch_size,-1,1)      # (batch_size, emb_dims, num_points) -> (batch_size, emb_dims, 1)
         maxs=F.adaptive_max_pool1d(x,1).view(batch_size,-1,1)
         x=maxs-avgs
         x = x.repeat(1, 1, num_points)          # (batch_size, 1024, num_points)
-        # x=x.permute(0,2,1)
-        x = torch.cat((x, x1,x2,x3,x4), dim=1)   # (batch_size, 1024+64*3, num_points)
-        # x = x.permute(0, 2, 1)
+        x=x.permute(0,2,1)
+        x = torch.cat((x, x1,x2,x3,x4), dim=2)   # (batch_size, 1024+64*3, num_points)
+        x = x.permute(0, 2, 1)
         # add
         x = self.conv7(x)                       # (batch_size, 1024+64*3, num_points) -> (batch_size, 512, num_points)
         x = self.conv8(x)                       # (batch_size, 512, num_points) -> (batch_size, 256, num_points)
